@@ -1,7 +1,6 @@
 # coding: utf-8
 
-from os import mkdir
-from serverProxy import extraiCabecalho
+import os
 
 def pesquisaCache(host, nomeArquivo):
     ''' Pesquisa um arquivo em disco. Se existir retorna seu conteúdo.
@@ -24,14 +23,25 @@ def abreArquivo(nomeArquivo):
     return arq
 
 
-def separaUrl(host)
-
-def leDados(nomeArquivo, qtdeDados)
+def separaUrl(host):
+    url = host.split('.')
+    print url
+    for i in url:
+        if(os.path.exists(i) and os.path.isdir(i)):
+            os.chdir(i)
+        else:
+            os.mkdir(i)
+            os.chdir(i)
+        print i
+    print 'Diretorio criado'
+    
+separaUrl('www.barbacena.ifsudestemg.edu.br/biblioteca')
+    
+'''def leDados(nomeArquivo, qtdeDados)
 
 def gravaArquivoCache(host, nomeArquivo, conteudo):
-    ''' Grava um arquivo em disco. Cria uma pasta, caso não exista,
+     Grava um arquivo em disco. Cria uma pasta, caso não exista,
         com nome do host.
-    '''
     try:
         mkdir(host)
     except OSError:
@@ -39,5 +49,5 @@ def gravaArquivoCache(host, nomeArquivo, conteudo):
     
     if not nomeArquivo:
             nomeArquivo = 'index.html'
-    open(host + '/' + nomeArquivo, 'w+').write(conteudo)
+    open(host + '/' + nomeArquivo, 'w+').write(conteudo)'''
 
